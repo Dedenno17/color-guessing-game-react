@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import Header from './components/Header/Header';
 import NavbarDificultyMode from './components/Header/NavbarDificultyMode';
+import Main from './components/Main/Main';
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Main />
       { isShowNavbarModal && <NavbarDificultyMode />}
     </div>
   );

@@ -4,8 +4,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      sizing: {
+        '100' : '100vh',
+      },
       colors: {
         'blueDefault' : '#38A3A5',
+        'skyBlue' : '#C7F9CC'
       },
       animation: {
         'go-down': 'goDown .3s ease-out forwards',
