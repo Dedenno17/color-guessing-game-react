@@ -1,6 +1,10 @@
 const CardColor = props => {
+
     return (
-        <div className="cursor-pointer w-full my-3.5 h-36 bg-green-800 shadow-xl"></div>
+        <div 
+            className="cursor-pointer w-full my-3.5 h-36 shadow-xl"
+            style={{backgroundColor: `${props.color}`}}
+        ></div>
     );
 }
  
