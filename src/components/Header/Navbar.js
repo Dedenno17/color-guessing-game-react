@@ -1,4 +1,14 @@
+import { useDispatch } from "react-redux";
+import { setIsShowNavbarModal } from '../../features/showNavbarModal';
+
 const Navbar = props => {
+
+    const dispatch = useDispatch();
+
+    const showNavbarModalHandler = () => {
+        dispatch(setIsShowNavbarModal(true));
+    }
+
     return (
         <nav className="w-full bg-blueDefault justify-end shadow-md flex px-5 py-1">
             {/* <ul className="">
@@ -15,7 +25,11 @@ const Navbar = props => {
                 </li>
             </ul> */}
             <div>
-                <button type="button" className="text-white text-xl font-semibold hover:text-slate-200">Mode</button>
+                <button 
+                    type="button" 
+                    className="text-white text-xl font-semibold hover:text-slate-200"
+                    onClick={showNavbarModalHandler}    
+                >Mode</button>
             </div>
         </nav>
     );
