@@ -21,7 +21,7 @@ const ModalBackground = props => {
 
 const ModalContent = props => {
 
-    const classes = `${props.className} fixed top-14 left-1/2 -translate-x-1/2 z-50 max-w-xs bg-slate-200 rounded-lg shadow-lg`
+    const classes = `${props.className} animate-go-down fixed top-14 left-1/2 -translate-x-1/2 z-50 max-w-xs bg-slate-200 rounded-lg shadow-lg`
 
     return (
         <div className={classes}>
