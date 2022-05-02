@@ -6,8 +6,8 @@ const Main = props => {
     const colors = useSelector(state => state.colors.colors);
 
     return (
-        <div className="w-full bg-skyBlue flex flex-col items-center h-full">
-            {colors.map(item => <CardColor color={item}/>)}
+        <div className="w-full bg-transparent flex flex-col items-center overflow-y-auto">
+            {colors.map((item, i) => <CardColor key={i} color={item} />)}
         </div>
     );
 }

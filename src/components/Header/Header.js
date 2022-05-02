@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const Header = props => {
     return (
-        <header className="bg-blueDefault flex flex-col-reverse sm:bg-pink-300">
+        <header className="bg-blueDefault flex flex-col-reverse md:bg-green-500">
             <Head />
             <Navbar />
         </header>

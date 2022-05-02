@@ -27,7 +27,7 @@ const Navbar = props => {
             <div>
                 <button 
                     type="button" 
-                    className="text-white text-xl font-semibold hover:text-slate-200"
+                    className="text-white text-xl font-semibold hover:text-slate-200 sm:text-2xl"
                     onClick={showNavbarModalHandler}    
                 >Mode</button>
             </div>
