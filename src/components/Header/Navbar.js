@@ -11,7 +11,7 @@ const Navbar = props => {
 
     return (
         <nav className="w-full bg-blueDefault justify-end shadow-md flex px-5 py-1">
-            {/* <ul className="">
+            <ul className="hidden lg:flex">
                 <li>
                     <button
                         type="button"
@@ -23,8 +23,12 @@ const Navbar = props => {
                         <button type="button">Hard</button>
                     </div>
                 </li>
-            </ul> */}
-            <div>
+            </ul>
+            <div className="flex w-1/2 justify-end lg:hidden">
+                <button
+                    type="button"
+                    className="text-white text-xl font-semibold hover:text-slate-200 sm:text-2xl mr-5"
+                >New colors</button>
                 <button 
                     type="button" 
                     className="text-white text-xl font-semibold hover:text-slate-200 sm:text-2xl"
