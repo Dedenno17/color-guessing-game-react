@@ -10,15 +10,15 @@ const Navbar = props => {
     }
 
     return (
-        <nav className="w-full bg-blueDefault justify-end shadow-md flex px-5">
-            <ul className="hidden lg:flex w-full justify-evenly text-2xl text-white">
+        <nav className="w-full bg-blueDefault justify-end shadow-md flex px-5 lg:justify-center lg:shadow-shadow-inverse">
+            <ul className="hidden lg:flex w-full justify-evenly text-2xl text-white xl:w-3/4">
                 <li className="h-full block">
                     <button
                         type="button"
                         className="bg-blueDefault py-2 px-3 h-full hover:brightness-95"
                     >New colors</button>
                 </li>
-                <li className="w-72 h-full flex justify-evenly">
+                <li className="w-72 h-full flex justify-evenly ">
                     <button type="button" className="bg-blueDefault px-5 h-full hover:brightness-95 py-2">Easy</button>
                     <button type="button" className="bg-blueDefault px-5 h-full hover:brightness-95 py-2">Hard</button>
                 </li>

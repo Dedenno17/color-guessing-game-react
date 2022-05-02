@@ -16,6 +16,9 @@ module.exports = {
           '0%': { top: '-20px', opacity: 0 },
           '100%' : { top: '56px', opacity: 1 }
         }
+      },
+      boxShadow: {
+        'shadow-inverse': '4px 0 6px -1px rgba(0, 0, 0, 0.2)',
       }
     },
   },
