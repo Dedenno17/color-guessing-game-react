@@ -1,11 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {setColorComp} from '../../features/colorComp';
 
 const Head = props => {
 
     const colors = useSelector(state => state.colors.colors);
+    
+    const dispatch = useDispatch();
 
     const getOneColor = () => {
         const random = Math.round(Math.random() * (3 - 0));
+        dispatch(setColorComp(colors[random]));
         return colors[random];
     }
 
