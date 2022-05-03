@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setIsShowNavbarModal } from '../../features/showNavbarModal';
+import { setColors } from "../../features/colors";
 
 const Navbar = props => {
+
+    const isEasyMode = useSelector(state => state.isEasyMode.isEasyMode);
 
     const [newColors, setNewColors] = useState(false);
 
@@ -17,7 +20,13 @@ const Navbar = props => {
     }
 
     useEffect(() => {
-        console.log('reload')
+        if( !isEasyMode ) {
+            dispatch(setColors('HARD'));
+        } else {
+            dispatch(setColors('EASY'));
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newColors])
 
     return (
