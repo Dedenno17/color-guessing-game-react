@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateValue = '';
+const initialStateValue = 'Color Guess Games';
 
 const rightMessages = [
     'You are Great!!',
@@ -12,16 +12,20 @@ const rightMessages = [
 
 export const gamesMessagesSlice = createSlice({
     name: 'gamesMessages',
-    initialState: {messages: initialStateValue},
+    initialState: {gamesMessages: initialStateValue},
     reducers: {
         setMessages: (state, action) => {
             if( action.payload === 'RIGHT' ) {
                 const random = Math.round(Math.random() * (4 - 0));
-                state.messages = rightMessages[random];
+                state.gamesMessages = rightMessages[random];
             }
 
             if( action.payload === 'WRONG' ) {
-                state.messages = 'Try Again!!'
+                state.gamesMessages = 'Try Again!!'
+            }
+
+            if( action.payload === 'DONE' ) {
+                state.gamesMessages = 'Sorry Your Time Is Up!!'
             }
         }
     }

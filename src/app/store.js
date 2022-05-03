@@ -11,6 +11,6 @@ export const store = configureStore({
     showNavbarModal: showNavbarModalReducer,
     colors: colorsReducer,
     colorComp: colorCompReducer,
-    gameMessages: gamesMessagesReducer
+    gamesMessages: gamesMessagesReducer
   },
 });

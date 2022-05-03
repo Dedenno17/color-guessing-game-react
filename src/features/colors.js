@@ -9,10 +9,9 @@ const getRandomColor = () => {
 }
 
 const initialStateValue = [
-    getRandomColor(),
-    getRandomColor(),
-    getRandomColor(),
-
+    {color: getRandomColor(), id: Math.random() + 1},
+    {color: getRandomColor(), id: Math.random() + 1},
+    {color: getRandomColor(), id: Math.random() + 1},
 ]
 
 export const colorsSlice = createSlice({
@@ -22,20 +21,20 @@ export const colorsSlice = createSlice({
         setColors: (state, action) => {
             if( action.payload === 'EASY' ) {
                 state.colors = [
-                    getRandomColor(),
-                    getRandomColor(),
-                    getRandomColor(),
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
                 ]
             }
 
             if( action.payload === 'HARD' ) {
                 state.colors = [
-                    getRandomColor(),
-                    getRandomColor(),
-                    getRandomColor(),
-                    getRandomColor(),
-                    getRandomColor(),
-                    getRandomColor(),
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
+                    {color: getRandomColor(), id: Math.random() + 1},
                 ]
             }
         }
