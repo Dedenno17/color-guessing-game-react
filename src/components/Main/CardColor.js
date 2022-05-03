@@ -1,7 +1,8 @@
+import { useSelector } from "react-redux";
 
 const CardColor = props => {
 
-    const rightAnswer = props.onRigthAnswer;
+    const rightAnswer = useSelector(state => state.isRightAnswer.isRightAnswer);
 
     return (
         <div

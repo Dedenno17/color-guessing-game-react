@@ -5,12 +5,14 @@ import showNavbarModalReducer from '../features/showNavbarModal';
 import colorsReducer from '../features/colors';
 import colorCompReducer from '../features/colorComp';
 import gamesMessagesReducer from '../features/gamesMessages';
+import isRightAnswerReducer from '../features/isAnswerRight';
 
 export const store = configureStore({
   reducer: {
     showNavbarModal: showNavbarModalReducer,
     colors: colorsReducer,
     colorComp: colorCompReducer,
-    gamesMessages: gamesMessagesReducer
+    gamesMessages: gamesMessagesReducer,
+    isRightAnswer: isRightAnswerReducer,
   },
 });

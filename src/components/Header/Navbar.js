@@ -1,13 +1,24 @@
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setIsShowNavbarModal } from '../../features/showNavbarModal';
 
 const Navbar = props => {
+
+    const [newColors, setNewColors] = useState(false);
 
     const dispatch = useDispatch();
 
     const showNavbarModalHandler = () => {
         dispatch(setIsShowNavbarModal(true));
     }
+
+    const newColorsHandler = () => {
+        setNewColors(prevState => !prevState);
+    }
+
+    useEffect(() => {
+        console.log('reload')
+    }, [newColors])
 
     return (
         <nav className="w-full bg-blueDefault justify-end shadow-md flex px-5 lg:justify-center lg:shadow-shadow-inverse">
@@ -27,6 +38,7 @@ const Navbar = props => {
                 <button
                     type="button"
                     className="text-white text-xl font-semibold hover:text-slate-200 sm:text-2xl mr-5"
+                    onClick={newColorsHandler}
                 >New colors</button>
                 <button 
                     type="button" 

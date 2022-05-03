@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setMessages } from "../../features/gamesMessages";
+import { setIsRightAnswer } from "../../features/isAnswerRight";
 import CardColor from "./CardColor";
 
 const Main = props => {
@@ -12,7 +13,6 @@ const Main = props => {
 
     const [colorPlayer, setColorPlayer] = useState('');
     const [chance, setChance] = useState(0);
-    const [isRightAnswer, setIsRightAnswer] = useState(false);
 
     useEffect(() => {
 
@@ -30,7 +30,7 @@ const Main = props => {
 
         if( colorPlayer === colorComp && chance <= 3 ) {
             dispatch(setMessages('RIGHT'));
-            setIsRightAnswer(true);
+            dispatch(setIsRightAnswer(true));
             setChance(0);
         }
 
@@ -52,7 +52,6 @@ const Main = props => {
                     id={item.id} 
                     color={item.color} 
                     onChoose={chooseColorHandler}
-                    onRigthAnswer={isRightAnswer}
                 />)}
         </div>
     );
