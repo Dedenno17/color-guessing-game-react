@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         'blueDefault' : '#38A3A5',
+        'teal' : '#008080',
         'skyBlue' : '#C7F9CC'
       },
       animation: {

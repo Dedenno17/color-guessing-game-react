@@ -4,57 +4,56 @@ import { setMessages } from "../../features/gamesMessages";
 import { setIsRightAnswer } from "../../features/isAnswerRight";
 import CardColor from "./CardColor";
 
-const Main = props => {
+const Main = (props) => {
+  const colors = useSelector((state) => state.colors.colors);
+  const colorComp = useSelector((state) => state.colorComp.colorComp);
 
-    const colors = useSelector(state => state.colors.colors);
-    const colorComp = useSelector(state => state.colorComp.colorComp);
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  const [colorPlayer, setColorPlayer] = useState("");
+  const [chance, setChance] = useState(0);
 
-    const [colorPlayer, setColorPlayer] = useState('');
-    const [chance, setChance] = useState(0);
-
-    useEffect(() => {
-
-        if( colorPlayer.trim() === '' ) {
-            return;
-        }
-
-        if( chance > 3 ) {
-            dispatch(setMessages('DONE'));
-        }
-
-        if( colorPlayer !== colorComp && chance <= 3 ) {
-            dispatch(setMessages('WRONG'));
-        }
-
-        if( colorPlayer === colorComp && chance <= 3 ) {
-            dispatch(setMessages('RIGHT'));
-            dispatch(setIsRightAnswer(true));
-            setChance(0);
-        }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps        
-    }, [chance, colorPlayer]);
-
-
-    const chooseColorHandler = (color) => {
-        setChance(prevState => {
-            return prevState += 1;
-        })
-        setColorPlayer(color);
+  useEffect(() => {
+    if (colorPlayer.trim() === "") {
+      return;
     }
-    return (
-        <div className="container mx-auto w-full bg-transparent flex flex-col items-center overflow-y-auto md:flex-row md:flex-wrap md:justify-evenly md:pt-11 md:pb-16 lg:max-w-6xl xl:max-w-full">
-            {colors.map((item) => 
-                <CardColor 
-                    key={item.id} 
-                    id={item.id} 
-                    color={item.color} 
-                    onChoose={chooseColorHandler}
-                />)}
-        </div>
-    );
-}
- 
+
+    if (chance > 3) {
+      dispatch(setMessages("DONE"));
+    }
+
+    if (colorPlayer !== colorComp && chance <= 3) {
+      dispatch(setMessages("WRONG"));
+    }
+
+    if (colorPlayer === colorComp && chance <= 3) {
+      dispatch(setMessages("RIGHT"));
+      dispatch(setIsRightAnswer(true));
+      setChance(0);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chance, colorPlayer]);
+
+  const chooseColorHandler = (color) => {
+    setChance((prevState) => {
+      return (prevState += 1);
+    });
+    setColorPlayer(color);
+  };
+
+  return (
+    <div className="container mx-auto w-full bg-transparent flex flex-col items-center overflow-y-auto md:flex-row md:flex-wrap md:justify-evenly md:pt-11 md:pb-16 lg:max-w-6xl xl:max-w-full">
+      {colors.map((item) => (
+        <CardColor
+          key={item.id}
+          id={item.id}
+          color={item.color}
+          onChoose={chooseColorHandler}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default Main;
