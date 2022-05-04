@@ -6,6 +6,7 @@ import { setIsLoading } from "../../features/isLoading";
 
 const Navbar = (props) => {
   const chance = useSelector((state) => state.chance.chance);
+  const isEasyMode = useSelector((state) => state.isEasyMode.isEasyMode);
 
   const dispatch = useDispatch();
 
@@ -17,12 +18,25 @@ const Navbar = (props) => {
     dispatch(setIsLoading(true));
     dispatch(setColors([]));
 
-    const timeOut = setTimeout(() => {
-      dispatch(setColors("EASY"));
-      dispatch(setIsRightAnswer(false));
-      dispatch(setIsLoading(false));
-      clearTimeout(timeOut);
-    }, 500);
+    if (isEasyMode) {
+      const timeOut = setTimeout(() => {
+        dispatch(setColors("EASY"));
+        dispatch(setIsRightAnswer(false));
+        dispatch(setIsLoading(false));
+        clearTimeout(timeOut);
+      }, 500);
+    } else {
+      const timeOut = setTimeout(() => {
+        dispatch(setColors("HARD"));
+        dispatch(setIsRightAnswer(false));
+        dispatch(setIsLoading(false));
+        clearTimeout(timeOut);
+      }, 500);
+    }
+  };
+
+  const changeModeClickHandler = (mode) => {
+    props.onChangeMode(mode);
   };
 
   return (
@@ -43,12 +57,14 @@ const Navbar = (props) => {
           <button
             type="button"
             className="bg-blueDefault px-5 h-full hover:brightness-95 py-2"
+            onClick={() => changeModeClickHandler("EASY")}
           >
             Easy
           </button>
           <button
             type="button"
             className="bg-blueDefault px-5 h-full hover:brightness-95 py-2"
+            onClick={() => changeModeClickHandler("HARD")}
           >
             Hard
           </button>
