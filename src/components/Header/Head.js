@@ -31,7 +31,7 @@ const Head = (props) => {
   }, [colors]);
 
   return (
-    <div className="w-full text-white py-2 flex flex-col items-center sm:h-36 lg:py-4 lg:shadow-inner lg:h-48">
+    <div className="w-full h-[122px] text-white py-2 flex flex-col items-center sm:h-36 lg:py-4 lg:shadow-inner lg:h-48">
       <h2 className="text-2xl font-semibold sm:text-3xl lg:mb-3 lg:text-4xl">
         Color Guess Game
       </h2>

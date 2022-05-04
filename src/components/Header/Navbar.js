@@ -57,7 +57,9 @@ const Navbar = (props) => {
       <div className="flex w-1/2 justify-end lg:hidden">
         <button
           type="button"
-          className="text-white text-xl font-semibold hover:text-slate-200 sm:text-2xl mr-5"
+          className={`text-white text-xl font-semibold hover:text-slate-200 sm:text-2xl mr-5 ${
+            chance !== 0 ? "pointer-events-none" : ""
+          }`}
           onClick={newColorsHandler}
         >
           New colors
