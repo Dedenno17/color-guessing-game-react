@@ -1,10 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setIsShowNavbarModal } from "../../features/showNavbarModal";
 import { setColors } from "../../features/colors";
 import { setIsRightAnswer } from "../../features/isAnswerRight";
 import { setIsLoading } from "../../features/isLoading";
 
 const Navbar = (props) => {
+  const chance = useSelector((state) => state.chance.chance);
+
   const dispatch = useDispatch();
 
   const showNavbarModalHandler = () => {
@@ -29,7 +31,9 @@ const Navbar = (props) => {
         <li className="h-full block">
           <button
             type="button"
-            className="bg-blueDefault py-2 px-3 h-full hover:brightness-95"
+            className={`bg-blueDefault py-2 px-3 h-full hover:brightness-95 ${
+              chance !== 0 ? "pointer-events-none" : ""
+            }`}
             onClick={newColorsHandler}
           >
             New colors

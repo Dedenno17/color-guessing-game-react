@@ -6,12 +6,11 @@ const Head = (props) => {
   const colors = useSelector((state) => state.colors.colors);
   const message = useSelector((state) => state.gamesMessages.gamesMessages);
   const isLoading = useSelector((state) => state.isLoading.isLoading);
-
   const isRightAnswer = useSelector(
     (state) => state.isRightAnswer.isRightAnswer
   );
-
   const colorComp = useSelector((state) => state.colorComp.colorComp);
+  const chance = useSelector((state) => state.chance.chance);
 
   const [colorToMatch, setColorToMatch] = useState("");
 
@@ -41,10 +40,12 @@ const Head = (props) => {
       </h1>
       <h2
         className={`text-xl mt-1 sm:text-2xl ${
-          isRightAnswer ? "text-green-400" : "text-red-400"
+          isRightAnswer && chance === 0 ? "text-green-400" : ""
+        } ${!isRightAnswer && chance !== 0 ? "text-red-400" : ""} ${
+          !isRightAnswer && chance === 0 ? "text-white" : ""
         }`}
       >
-        {message}
+        {!isRightAnswer && chance === 0 ? "Guess The Color" : message}
       </h2>
     </div>
   );
