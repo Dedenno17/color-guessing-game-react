@@ -8,9 +8,11 @@ import gamesMessagesReducer from "../features/gamesMessages";
 import isRightAnswerReducer from "../features/isAnswerRight";
 import isEasyModeReducer from "../features/isEasyMode";
 import isLoadingReducer from "../features/isLoading";
+import chanceReducer from "../features/chance";
 
 export const store = configureStore({
   reducer: {
+    chance: chanceReducer,
     colors: colorsReducer,
     colorComp: colorCompReducer,
     gamesMessages: gamesMessagesReducer,

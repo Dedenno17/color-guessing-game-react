@@ -2,16 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setMessages } from "../../features/gamesMessages";
 import { setIsRightAnswer } from "../../features/isAnswerRight";
+import { resetChance, incrementChance } from "../../features/chance";
 import CardColor from "./CardColor";
 
 const Main = (props) => {
   const colors = useSelector((state) => state.colors.colors);
   const colorComp = useSelector((state) => state.colorComp.colorComp);
+  const chance = useSelector((state) => state.chance.chance);
 
   const dispatch = useDispatch();
 
   const [colorPlayer, setColorPlayer] = useState("");
-  const [chance, setChance] = useState(0);
 
   useEffect(() => {
     if (colorPlayer.trim() === "") {
@@ -29,16 +30,14 @@ const Main = (props) => {
     if (colorPlayer === colorComp && chance <= 3) {
       dispatch(setMessages("RIGHT"));
       dispatch(setIsRightAnswer(true));
-      setChance(0);
+      dispatch(resetChance());
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chance, colorPlayer]);
 
   const chooseColorHandler = (color) => {
-    setChance((prevState) => {
-      return (prevState += 1);
-    });
+    dispatch(incrementChance());
     setColorPlayer(color);
   };
 

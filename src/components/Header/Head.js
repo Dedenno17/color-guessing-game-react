@@ -41,7 +41,7 @@ const Head = (props) => {
       </h1>
       <h2
         className={`text-xl mt-1 sm:text-2xl ${
-          isRightAnswer ? "text-green-400" : ""
+          isRightAnswer ? "text-green-400" : "text-red-400"
         }`}
       >
         {message}
