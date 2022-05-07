@@ -25,6 +25,7 @@ const Main = (props) => {
 
     if (colorPlayer !== colorComp && chance <= 3) {
       dispatch(setMessages("WRONG"));
+      dispatch(setIsRightAnswer(false));
     }
 
     if (colorPlayer === colorComp && chance <= 3) {
@@ -41,6 +42,7 @@ const Main = (props) => {
     setColorPlayer(color);
   };
 
+  console.log(chance);
   return (
     <div className="container mx-auto w-full bg-transparent pt-44 pb-2 flex justify-evenly flex-col items-center sm:pt-44 md:flex-row md:flex-wrap md:justify-evenly md:pt-48 md:pb-10 lg:max-w-6xl lg:pt-64 xl:max-w-full">
       {colors.map((item) => (
